@@ -53,7 +53,7 @@ const books = [
 	}];
 
 router.get('/', function(req, res, next) {
-  const URL = "mongodb://azure-express:46EwKL9RFbbS3diqEBjr9pGBLmVkiNXyuIJt6MoT0mXUXAjGvPOZg94xSuBa0HPfPnOns0QIZeekVln9beqtWQ==@azure-express.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@azure-express@";
+  const URL = process.env.URL;
   const dbName = 'Library';
   (async function(){
 		let client;
