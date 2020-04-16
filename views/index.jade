@@ -4,6 +4,7 @@ block content
   h1 Welcome to #{title}
   each book in books
     div
+      img(src=`https://librarystorage.blob.core.windows.net/covers/24280.jpg`)
       h2= book.title
       h3= book.author
       p
