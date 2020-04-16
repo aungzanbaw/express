@@ -3,6 +3,9 @@
 /**
  * Module dependencies.
  */
+const ai = require("applicationinsights");
+const instrumentation = "905d4706-0201-4436-a955-d3baf5a865f7"; 
+ai.start();
 
 var app = require('../app');
 var debug = require('debug')('azuretest:server');
@@ -87,4 +90,6 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  let duration = Date.now() - start;
+  ai.defaultClient.trackMetric({name: 'StartupTime', value: duration});
 }
