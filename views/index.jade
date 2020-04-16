@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Welcome to #{title}
+  each book in books
+    div
+      h2= book.title
+      h3= book.author
+      p
+        small= book.genre

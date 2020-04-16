@@ -13,8 +13,8 @@ router.get('/', function(req, res, next) {
     try {
 			client = await MongoClient.connect(URL);
 			const db = client.db(dbName);
-			const reponse = await db.collection('books').find().toArray();
-			res.json(reponse);
+			const books = await db.collection('books').find().toArray();
+			res.render('index',{ books });
     } catch (error) {
 			console.log(error);
     }
